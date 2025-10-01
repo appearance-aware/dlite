@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="∂LITE: Differentiable Lighting-Informed Trajectory Evaluation for On-Orbit Inspection - An end-to-end differentiable simulation pipeline for optimizing spacecraft inspection trajectories.">
-  <meta name="keywords" content="∂LITE, DLITE, Differentiable Rendering, Spacecraft Inspection, Orbital Mechanics, SGP4, Mitsuba">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        content="∂LITE: Differentiable Lighting-Informed Trajectory Evaluation for On-Orbit Inspection - An end-to-end differentiable simulation pipeline for optimising spacecraft inspection trajectories."   />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>∂LITE: Differentiable Lighting-Informed Trajectory Evaluation</title>
 
 
@@ -105,8 +104,20 @@
           <div class="box">
             <img src="./static/images/iac_figures/fig_1_iac.webp" alt="∂LITE Overview" class="project-figure" style="max-width:100%;height:auto;"/>
             <p class="has-text-weight-semibold" style="margin-top: 1rem;">System Overview</p>
-            <p class="has-text-left">∂LITE produces non-obvious trajectories based on visual costs, optimizing orbital parameters 
-            for passive inspection trajectories that yield superior quality images by minimizing specular reflections.</p>
+            <p class="has-text-left">∂LITE is an end-to-end differentiable simulator for on-orbit inspection which produces non-obvious trajectories based on visual costs. We optimise orbital parameters for passive inspection trajectories that yield superior quality images of a target satellite by minimising specular reflections seen by the sensor.</p>
+          </div>
+        </div>
+      </div>
+
+            <!-- Method Overview -->
+      <div class="columns is-centered" style="margin-bottom: 2rem;">
+        <div class="column is-10">
+          <div class="box">
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Motivation</p>
+            <div class="has-text-centered" style="margin-bottom: 1rem;">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/N71w4Mgvmcg" title="Motivation Video" frameborder="0" allow="accelerometer; autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p class="has-text-left">This video of Astroscale's ADRAS-J Mission demonstrates the key visual challenges of inspecting objects on-orbit. The dynamic and intense illumination of the sun saturates images captured the by the camera, significantly reducing information about texture and shape able to be discerned. ∂LITE optimises trajectories which avoid these direct reflections, significantly increasing the quality of captured imagery. </p>
           </div>
         </div>
       </div>
@@ -117,15 +128,13 @@
           <div class="box">
             <img src="./static/images/iac_figures/method_figure_iac.webp" alt="∂LITE Pipeline" class="project-figure" style="max-width:100%;height:auto;"/>
             <p class="has-text-weight-semibold" style="margin-top: 1rem;">Pipeline Architecture</p>
-            <p class="has-text-left">The complete ∂LITE pipeline combining differentiable SGP4 orbit propagation with 
-            photorealistic rendering. Given TLE data and simulation parameters, the system computes time-varying sun vectors 
-            and satellite positions to render inspection imagery and backpropagate gradients for orbital optimization.</p>
+            <p class="has-text-left">An overview of the ∂LITE pipeline. Given a TLE for the chaser satellite and a simulation epoch, we compute a time-varying sun vector and satellite position at time t. The scene parameters are updated to produce rendered inspection imagery. From these observations we formulate a visual cost capturing the specularity in the scene to backpropagate gradients through the pipeline.</p>
           </div>
         </div>
       </div>
 
       <!-- Evaluation Videos Carousel -->
-      <h3 class="title is-4 has-text-centered" style="margin-top: 3rem;">Trajectory Optimization Results</h3>
+      <h3 class="title is-4 has-text-centered" style="margin-top: 3rem;">Trajectory Optimisation Results</h3>
       <div class="content has-text-centered" style="margin-bottom: 2rem;">
         <p class="subtitle is-6">
           Comparisons showing RGB and specular cost visualizations of conventional inspection trajectories (before) compared to our optimised trajectories (after).
@@ -140,11 +149,11 @@
         <div id="results-carousel" class="carousel results-carousel">
           <!-- CloudSat -->
           <div class="item item-cloudsat">
-            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">CloudSat Inspection Optimization</h4>
+            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">CloudSat Inspection Optimisation</h4>
             <div class="columns is-multiline">
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">RGB - Before Optimization</p>
+                  <p class="subtitle is-6">RGB - Before Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/cloudsat_rgb_epoch0.mp4" type="video/mp4">
                   </video>
@@ -152,7 +161,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">RGB - After Optimization</p>
+                  <p class="subtitle is-6">RGB - After Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/cloudsat_rgb_epoch1.mp4" type="video/mp4">
                   </video>
@@ -160,7 +169,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">Specular Cost - Before Optimization</p>
+                  <p class="subtitle is-6">Specular Cost - Before Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/cloudsat_specular_epoch0.mp4" type="video/mp4">
                   </video>
@@ -168,7 +177,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">Specular Cost - After Optimization</p>
+                  <p class="subtitle is-6">Specular Cost - After Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/cloudsat_specular_epoch1.mp4" type="video/mp4">
                   </video>
@@ -179,11 +188,11 @@
 
           <!-- Hubble -->
           <div class="item item-hubble">
-            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">Hubble Space Telescope Inspection Optimization</h4>
+            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">Hubble Space Telescope Inspection Optimisation</h4>
             <div class="columns is-multiline">
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">RGB - Before Optimization</p>
+                  <p class="subtitle is-6">RGB - Before Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/hubble_rgb_epoch0.mp4" type="video/mp4">
                   </video>
@@ -191,7 +200,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">RGB - After Optimization</p>
+                  <p class="subtitle is-6">RGB - After Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/hubble_rgb_epoch1.mp4" type="video/mp4">
                   </video>
@@ -199,7 +208,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">Specular Cost - Before Optimization</p>
+                  <p class="subtitle is-6">Specular Cost - Before Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/hubble_specular_epoch0.mp4" type="video/mp4">
                   </video>
@@ -207,7 +216,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">Specular Cost - After Optimization</p>
+                  <p class="subtitle is-6">Specular Cost - After Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/hubble_specular_epoch1.mp4" type="video/mp4">
                   </video>
@@ -218,11 +227,11 @@
 
           <!-- Sentinel-6 -->
           <div class="item item-sentinel6">
-            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">Sentinel-6 Inspection Optimization</h4>
+            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">Sentinel-6 Inspection Optimisation</h4>
             <div class="columns is-multiline">
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">RGB - Before Optimization</p>
+                  <p class="subtitle is-6">RGB - Before Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/sentinel6_rgb_epoch0.mp4" type="video/mp4">
                   </video>
@@ -230,7 +239,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">RGB - After Optimization</p>
+                  <p class="subtitle is-6">RGB - After Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/sentinel6_rgb_epoch1.mp4" type="video/mp4">
                   </video>
@@ -238,7 +247,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">Specular Cost - Before Optimization</p>
+                  <p class="subtitle is-6">Specular Cost - Before Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/sentinel6_specular_epoch0.mp4" type="video/mp4">
                   </video>
@@ -246,7 +255,7 @@
               </div>
               <div class="column is-6">
                 <div class="has-text-centered">
-                  <p class="subtitle is-6">Specular Cost - After Optimization</p>
+                  <p class="subtitle is-6">Specular Cost - After Optimisation</p>
                   <video autoplay controls muted loop playsinline height="100%">
                     <source src="./static/videos/evaluation/sentinel6_specular_epoch1.mp4" type="video/mp4">
                   </video>
@@ -281,8 +290,7 @@
           <div class="box">
             <img src="./static/images/iac_figures/test_error.webp" alt="SGP4 Validation" class="project-figure" style="max-width:100%;height:auto;"/>
             <p class="has-text-weight-semibold" style="margin-top: 1rem;">SGP4 Implementation Validation</p>
-            <p class="has-text-left">Comparison of our differentiable SGP4 propagator with existing software using the 
-            Hubble Space Telescope. Our implementation achieves similar accuracy while being fully differentiable via JAX.</p>
+            <p class="has-text-left">Comparison of our differentiable SGP4 propagator with existing software, using the Hubble Space Telescope as an example. We achieve similar results, with the benefit of our implementation being fully differentiable via JAX. Similar numerical results were observed for CloudSat and Sentinel-6.</p>
           </div>
         </div>
 
@@ -291,8 +299,7 @@
           <div class="box">
             <img src="./static/images/iac_figures/cost_plot_clean.webp" alt="Cost Optimization" class="project-figure" style="max-width:100%;height:auto;"/>
             <p class="has-text-weight-semibold" style="margin-top: 1rem;">Cost Function Optimization</p>
-            <p class="has-text-left">Progression of cost terms during optimization showing rapid convergence around 100 iterations. 
-            The system trades off imaging distance to achieve lower specular costs.</p>
+            <p class="has-text-left">Total cost, specular cost, and distance cost of the orbital parameters over optimisation iterations for the Hubble Inspection. Our optimisation reaches a local minimum yielding substantially reduced specular cost throughout an orbit.</p>
           </div>
         </div>
 
@@ -313,8 +320,7 @@
           <div class="box">
             <img src="./static/images/iac_figures/specular_cost_map.webp" alt="Specular Cost Comparison" class="project-figure" style="max-width:100%;height:auto;"/>
             <p class="has-text-weight-semibold" style="margin-top: 1rem;">Specular Reflection Reduction</p>
-            <p class="has-text-left">Qualitative comparison showing maximum specular costs before and after optimization. 
-            By optimizing orbital parameters, ∂LITE dramatically reduces specular reflections observed throughout the orbit.</p>
+            <p class="has-text-left">Qualitative comparison of maximum specular costs observed through an orbit. By optimising orbital parameters to observe the target satellite from different locations and angles, we dramatically reduce specular costs observed through an orbit.</p>
           </div>
         </div>
 
@@ -323,9 +329,14 @@
         <div class="column is-10">
           <div class="box">
             <img src="./static/images/iac_figures/relative_orbit_test.webp" alt="Orbit Validation" class="project-figure" style="max-width:100%;height:auto;"/>
-            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Trajectory Validation</p>
-            <p class="has-text-left">Detailed analysis of the optimized relative orbit showing maintenance of appropriate 
-            imaging distances while achieving improved lighting conditions.</p>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Trajectory Visualisation</p>
+            <p class="has-text-left">The orbit of the chaser satellite relative to the tar-
+get satellite (black dot) in the Hubble inspection exper-
+iment. The black circle represents the initialised orbit
+and red curve represents the optimised orbit. The sec-
+tion of the orbit which the parameters were optimised
+for (t ∈ [0, T ]) are solid, while the rest of the orbit is
+dashed</p>
           </div>
         </div>
 
