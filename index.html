@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="∂LITE: Differentiable Lighting-Informed Trajectory Evaluation for On-Orbit Inspection - An end-to-end differentiable simulation pipeline for optimizing spacecraft inspection trajectories.">
+  <meta name="keywords" content="∂LITE, DLITE, Differentiable Rendering, Spacecraft Inspection, Orbital Mechanics, SGP4, Mitsuba">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>∂LITE: Differentiable Lighting-Informed Trajectory Evaluation</title>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+
+
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">∂LITE: Differentiable Lighting-Informed Trajectory Evaluation for On-Orbit Inspection</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="mailto:jack.naylor@sydney.edu.au">Jack Naylor</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="mailto:raghav.mishra@sydney.edu.au">Raghav Mishra</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="mailto:nicholas.barbara@sydney.edu.au">Nicholas H. Barbara</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="mailto:donald.dansereau@sydney.edu.au">Donald G. Dansereau</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Australian Centre for Robotics and School of Aerospace, Mechanical and Mechatronic Engineering, The University of Sydney</span><br>
+            <span class="author-block"><sup>2</sup>Australian Robotic Inspection and Asset Management (ARIAM) Hub, The University of Sydney</span><br>
+            <span class="author-block"><sup>*</sup>Corresponding Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link.
+              <span class="link-block">
+                <a href="https://github.com/appearance-aware/dlite-iac"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ∂LITE: Differentiable Lighting-Informed Trajectory Evaluation -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">∂LITE: Differentiable Lighting-Informed Trajectory Evaluation</h2>
+      <div class="content has-text-centered">
+        <p class="subtitle is-5">
+          An end-to-end differentiable simulation pipeline for on-orbit inspection operations that optimizes 
+          inspection trajectories based on visual measurements to minimize specular reflections and improve image quality.
+        </p>
+      </div>
+      
+      <!-- Method Overview -->
+      <div class="columns is-centered" style="margin-bottom: 2rem;">
+        <div class="column is-10">
+          <div class="box">
+            <img src="./static/images/iac_figures/fig_1_iac.webp" alt="∂LITE Overview" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">System Overview</p>
+            <p class="has-text-left">∂LITE produces non-obvious trajectories based on visual costs, optimizing orbital parameters 
+            for passive inspection trajectories that yield superior quality images by minimizing specular reflections.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Method Pipeline -->
+      <div class="columns is-centered" style="margin-bottom: 2rem;">
+        <div class="column is-12">
+          <div class="box">
+            <img src="./static/images/iac_figures/method_figure_iac.webp" alt="∂LITE Pipeline" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Pipeline Architecture</p>
+            <p class="has-text-left">The complete ∂LITE pipeline combining differentiable SGP4 orbit propagation with 
+            photorealistic rendering. Given TLE data and simulation parameters, the system computes time-varying sun vectors 
+            and satellite positions to render inspection imagery and backpropagate gradients for orbital optimization.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evaluation Videos Carousel -->
+      <h3 class="title is-4 has-text-centered" style="margin-top: 3rem;">Trajectory Optimization Results</h3>
+      <div class="content has-text-centered" style="margin-bottom: 2rem;">
+        <p class="subtitle is-6">
+          2x2 video comparisons showing RGB and specular cost visualizations before (epoch 0) and after (epoch 1) optimization for each target satellite.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <!-- CloudSat -->
+          <div class="item item-cloudsat">
+            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">CloudSat Inspection Optimization</h4>
+            <div class="columns is-multiline">
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">RGB - Before Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/cloudsat_rgb_epoch0.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">RGB - After Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/cloudsat_rgb_epoch1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">Specular Cost - Before Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/cloudsat_specular_epoch0.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">Specular Cost - After Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/cloudsat_specular_epoch1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hubble -->
+          <div class="item item-hubble">
+            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">Hubble Space Telescope Inspection Optimization</h4>
+            <div class="columns is-multiline">
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">RGB - Before Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/hubble_rgb_epoch0.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">RGB - After Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/hubble_rgb_epoch1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">Specular Cost - Before Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/hubble_specular_epoch0.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">Specular Cost - After Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/hubble_specular_epoch1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sentinel-6 -->
+          <div class="item item-sentinel6">
+            <h4 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">Sentinel-6 Inspection Optimization</h4>
+            <div class="columns is-multiline">
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">RGB - Before Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/sentinel6_rgb_epoch0.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">RGB - After Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/sentinel6_rgb_epoch1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">Specular Cost - Before Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/sentinel6_specular_epoch0.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="has-text-centered">
+                  <p class="subtitle is-6">Specular Cost - After Optimization</p>
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/videos/evaluation/sentinel6_specular_epoch1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = bulmaCarousel.attach('#results-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        infinite: true,
+        autoplay: false
+      });
+    });
+  </script>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Results Gallery -->
+      <h3 class="title is-4 has-text-centered" style="margin-top: 3rem;">Experimental Results</h3>
+      <div class="columns is-multiline is-centered">
+        
+        <!-- Validation Results -->
+        <div class="column is-6">
+          <div class="box">
+            <img src="./static/images/iac_figures/test_error.webp" alt="SGP4 Validation" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">SGP4 Implementation Validation</p>
+            <p class="has-text-left">Comparison of our differentiable SGP4 propagator with existing software using the 
+            Hubble Space Telescope. Our implementation achieves similar accuracy while being fully differentiable via JAX.</p>
+          </div>
+        </div>
+
+        <!-- Cost Optimization -->
+        <div class="column is-6">
+          <div class="box">
+            <img src="./static/images/iac_figures/cost_plot_clean.webp" alt="Cost Optimization" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Cost Function Optimization</p>
+            <p class="has-text-left">Progression of cost terms during optimization showing rapid convergence around 100 iterations. 
+            The system trades off imaging distance to achieve lower specular costs.</p>
+          </div>
+        </div>
+
+        <!-- Orbital Trajectories
+        <div class="column is-6">
+          <div class="box">
+            <img src="./static/images/iac_figures/relative_orbits.webp" alt="Optimized Orbits" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Orbital Trajectory Optimization</p>
+            <p class="has-text-left">Initial circular orbit vs. final optimized 3D trajectory in the target satellite frame. 
+            The complex final orbit would be non-trivial to design manually, demonstrating the benefit of our approach.</p>
+          </div>
+        </div> -->
+
+        <!-- Pixel Saturation -->
+        <div class="column is-6">
+          <div class="box">
+            <img src="./static/images/iac_figures/saturation_over_orbit.webp" alt="Pixel Saturation Reduction" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Image Quality Improvement</p>
+            <p class="has-text-left">Percentage of saturated pixels during Hubble inspection. ∂LITE substantially reduces 
+            pixel saturation by minimizing direct sunlight reflections, improving overall image quality.</p>
+          </div>
+        </div>
+
+        <!-- Specular Cost Comparison -->
+        <div class="column is-6">
+          <div class="box">
+            <img src="./static/images/iac_figures/specular_cost_map.webp" alt="Specular Cost Comparison" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Specular Reflection Reduction</p>
+            <p class="has-text-left">Qualitative comparison showing maximum specular costs before and after optimization. 
+            By optimizing orbital parameters, ∂LITE dramatically reduces specular reflections observed throughout the orbit.</p>
+          </div>
+        </div>
+
+        <!-- Additional Cost Plots -->
+        <!-- <div class="column is-4">
+          <div class="box">
+            <img src="./static/images/iac_figures/cost_plot.webp" alt="Detailed Cost Analysis" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Cost Analysis</p>
+            <p class="has-text-left">Detailed cost function progression showing the balance between specular and distance costs.</p>
+          </div>
+        </div> -->
+
+        <!-- Maximum Cost Images
+        <div class="column is-6">
+          <div class="box">
+            <img src="./static/images/iac_figures/max_cost_imgs.webp" alt="Maximum Cost Comparison" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Worst-Case Scenario Comparison</p>
+            <p class="has-text-left">Visual comparison at positions of maximum specular cost, demonstrating significant 
+            improvement in image quality even at challenging orbital positions.</p>
+          </div>
+        </div> -->
+
+        <!-- Relative Orbit Test -->
+        <div class="column is-10">
+          <div class="box">
+            <img src="./static/images/iac_figures/relative_orbit_test.webp" alt="Orbit Validation" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Trajectory Validation</p>
+            <p class="has-text-left">Detailed analysis of the optimized relative orbit showing maintenance of appropriate 
+            imaging distances while achieving improved lighting conditions.</p>
+          </div>
+        </div>
+
+        <!-- Cost Plot with Images
+        <div class="column is-12">
+          <div class="box">
+            <img src="./static/images/iac_figures/cost_plot_with_imgs.webp" alt="Cost Plot with Visual Examples" class="project-figure" style="max-width:100%;height:auto;"/>
+            <p class="has-text-weight-semibold" style="margin-top: 1rem;">Cost Function with Visual Examples</p>
+            <p class="has-text-left">Comprehensive cost analysis paired with representative images showing the correlation 
+            between numerical cost values and visual quality improvements throughout the optimization process.</p>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Visual inspection of space-borne assets is of increasing interest to spacecraft operators looking to plan maintenance, characterise damage, and extend the life of high-value satellites in orbit. The environment of Low Earth Orbit (LEO) presents unique challenges when planning inspection operations that maximise visibility, information, and data quality.
+          </p>
+          <p>
+            Specular reflection of sunrays from spacecraft bodies, self-shadowing, and dynamic lighting in LEO significantly impact the quality of data captured throughout an orbit. This is exacerbated by the relative motion between spacecraft, which typically introduces variable imaging distances and attitudes during inspection. Planning inspection trajectories via simulation is a common approach. However, the ability to design and optimise an inspection trajectory specifically for the resulting quality of imaging data in proximity operations remains largely unexplored.
+          </p>
+          <p>
+            In this work, we present <span class="dnerf">∂LITE</span>, an end-to-end differentiable simulation pipeline for on-orbit inspection operations. We leverage state-of-the-art differentiable rendering tools and a custom orbit propagator to enable end-to-end optimisation of orbital parameters based on visual measurements. <span class="dnerf">∂LITE</span> enables us to optimise for non-obvious trajectories, vastly improving the quality and usefulness of attained data. To our knowledge, our differentiable inspection-planning pipeline is the first of its kind and provides new insights into modern computational approaches to spacecraft mission planning.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@article{naylor2025dlite,
+  author = {Naylor, Jack and Mishra, Raghav and Barbara, Nicholas and Dansereau, Donald G.},
+  title = {$\partial${LITE}: Differentiable Lighting-Informed Trajectory Evaluation for On-Orbit Inspection},
+  journal = {IAF 76th International Astronautical Congress (IAC) Space Operations Symposium},
+  organization = {International Astronautical Federation},
+  year = {2025},
+}
+
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!-- <a class="icon-link" href="https://github.com/appearance-aware/dlite-iac" class="external-link">
+        <i class="fab fa-github"></i>
+      </a> -->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+  
+          <p>
+            This website borrows the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
