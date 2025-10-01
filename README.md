@@ -3,7 +3,7 @@
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://appearance-aware.github.io/dlite-iac/)
 [![IAC 2025](https://img.shields.io/badge/IAC-2025-green)](https://www.iafastro.org/events/iac/iac-2025/)
 
-This repository contains the project website and supplementary materials for **∂LITE** (*partial LITE*), an end-to-end differentiable simulation pipeline for on-orbit inspection operations.
+This repository contains the project website for **∂LITE**, an end-to-end differentiable simulation pipeline for on-orbit inspection operations.
 
 ## Abstract
 
@@ -43,7 +43,7 @@ If you find ∂LITE useful for your research, please cite:
 
 ## Acknowledgments
 
-This research was conducted at the Australian Centre for Robotics, The University of Sydney, and supported by the Australian Robotic Inspection and Asset Management (ARIAM) Hub.
+The authors gratefully acknowledge support from the NSW Space Research Network to present this work. This research was supported in part through the NVIDIA Academic Grant Program. This work was supported in part by the ARC Research Hub in Intelligent Robotic Systems for Real-Time Asset Management (IH210100030).
 
 ## License
 
