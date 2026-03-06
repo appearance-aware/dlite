@@ -8,6 +8,45 @@ body {
     color: #000;
 }
 
+.research-group-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.research-group-logos a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.research-logo {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.research-logo-mark {
+  max-height: 96px;
+}
+
+.research-logo-wordmark {
+  max-height: 112px;
+}
+
+@media screen and (max-width: 768px) {
+  .research-logo-mark {
+    max-height: 72px;
+  }
+
+  .research-logo-wordmark {
+    max-height: 84px;
+  }
+}
+
 .link-block a {
     margin-top: 5px;
     margin-bottom: 5px;
